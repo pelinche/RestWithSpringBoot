@@ -5,12 +5,19 @@ import java.util.concurrent.atomic.AtomicLong;
 import br.inf.nedel.restwithspringboot.exception.UnsuportedMathOperationException;
 import br.inf.nedel.restwithspringboot.math.SimpleMath;
 import br.inf.nedel.restwithspringboot.request.converters.NumberConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class MathController {
-    private SimpleMath math = new SimpleMath();
+//    private SimpleMath math = new SimpleMath();
+    @Autowired
+    private SimpleMath math;
+
+
+
+
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method=RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne,@PathVariable("numberTwo") String numberTwo) throws Exception {
         if(!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)){

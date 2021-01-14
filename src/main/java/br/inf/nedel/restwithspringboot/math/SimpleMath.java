@@ -1,5 +1,8 @@
 package br.inf.nedel.restwithspringboot.math;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class SimpleMath {
     public Double sum(Double firstNumber, Double secondNumber){
         return firstNumber + secondNumber;
