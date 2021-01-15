@@ -1,6 +1,7 @@
 package br.inf.nedel.restwithspringboot.controller;
 
 import br.inf.nedel.restwithspringboot.data.vo.PersonVO;
+import br.inf.nedel.restwithspringboot.data.vo.v2.PersonVOV2;
 import br.inf.nedel.restwithspringboot.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,12 @@ public class PersonController {
     public PersonVO create(@RequestBody PersonVO person){
         return services.create(person);
     }
+
+    @PostMapping("/v2")
+    public PersonVOV2 createv2(@RequestBody PersonVOV2 person){
+        return services.createV2(person);
+    }
+
 
     @PutMapping
     public PersonVO update(@RequestBody PersonVO person){

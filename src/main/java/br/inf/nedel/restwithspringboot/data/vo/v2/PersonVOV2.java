@@ -1,32 +1,26 @@
-package br.inf.nedel.restwithspringboot.data.model;
+package br.inf.nedel.restwithspringboot.data.vo.v2;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-@Entity
-@Table(name="person")
-public class Person implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class PersonVOV2 implements Serializable {
     private Long id;
 
-    @Column(name="first_name",nullable = false,length = 80)
     private String firtsName;
 
-    @Column(name="last_name",nullable = false,length = 80)
     private String lastName;
 
-    @Column(nullable = false,length = 100)
     private String address;
 
-    @Column(nullable = false,length = 6)
     private String gender;
 
+    private Date birthDay;
 
-
-    public Person(){
+    public PersonVOV2(){
     }
+
 
     public Long getId() {
         return id;
@@ -68,16 +62,24 @@ public class Person implements Serializable {
         this.gender = gender;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id) && Objects.equals(firtsName, person.firtsName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender);
+        PersonVOV2 that = (PersonVOV2) o;
+        return Objects.equals(id, that.id) && Objects.equals(firtsName, that.firtsName) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(gender, that.gender) && Objects.equals(birthDay, that.birthDay);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firtsName, lastName, address, gender);
+        return Objects.hash(id, firtsName, lastName, address, gender, birthDay);
     }
 }
