@@ -1,6 +1,6 @@
 package br.inf.nedel.restwithspringboot.repository;
 
-import br.inf.nedel.restwithspringboot.model.Person;
+import br.inf.nedel.restwithspringboot.data.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
